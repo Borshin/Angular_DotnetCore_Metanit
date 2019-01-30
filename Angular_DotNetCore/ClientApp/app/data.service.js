@@ -18,7 +18,7 @@ var DataService = /** @class */ (function () {
         return this.http.get(this.url);
     };
     DataService.prototype.createProduct = function (product) {
-        return this.http.post(this.url, product);
+        return this.http.post(this.url, product, { observe: 'response' });
     };
     DataService.prototype.updateProduct = function (product) {
         return this.http.put(this.url + '/' + product.id, product);

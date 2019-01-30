@@ -61,7 +61,7 @@ namespace Angular_DotNetCore.Controllers
                 db.Update(product);
                 await db.SaveChangesAsync();
 
-                return Ok(product);
+                return Ok();
             }
 
             return BadRequest(ModelState);

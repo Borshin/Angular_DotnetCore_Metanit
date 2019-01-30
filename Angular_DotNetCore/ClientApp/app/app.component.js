@@ -28,7 +28,11 @@ var AppComponent = /** @class */ (function () {
         var _this = this;
         if (this.product.id == null) {
             this.dataService.createProduct(this.product)
-                .subscribe(function (data) { return _this.products.push(data); });
+                .subscribe(function (data) {
+                console.log(data);
+                console.log(data.headers.get('content-type'));
+                _this.products.push(data.body);
+            });
         }
         else {
             this.dataService.updateProduct(this.product)
@@ -55,7 +59,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent = __decorate([
         Component({
             selector: 'app',
-            template: './app.component.html',
+            templateUrl: './app.component.html',
             providers: [DataService]
         }),
         __metadata("design:paramtypes", [DataService])

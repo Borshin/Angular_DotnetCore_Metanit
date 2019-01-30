@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from './data.service';
 import { Product } from './product';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
 
     selector: 'app',
-    template: './app.component.html',
+    templateUrl: './app.component.html',
     providers: [DataService]
 })
 
@@ -31,7 +32,11 @@ export class AppComponent implements OnInit {
     save() {
         if (this.product.id == null) {
             this.dataService.createProduct(this.product)
-                .subscribe((data: Product) => this.products.push(data));
+                .subscribe((data: HttpResponse<Product>) => {
+                    console.log(data);
+                    console.log(data.headers.get('content-type'));
+                    this.products.push(data.body)
+                });
         } else {
             this.dataService.updateProduct(this.product)
                 .subscribe(data => this.loadProducts());
