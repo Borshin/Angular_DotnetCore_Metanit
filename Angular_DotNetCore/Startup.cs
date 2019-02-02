@@ -1,6 +1,7 @@
 ﻿ using System;
 using System.Collections.Generic;
-using System.Linq;
+ using System.IO;
+ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -37,6 +38,11 @@ namespace Angular_DotNetCore
                 app.UseDefaultFiles();
                 app.UseStaticFiles();
                 app.UseMvc();
+                app.Run(async (context) =>
+                {
+                    context.Response.ContentType = "text/html";
+                    await context.Response.SendFileAsync(Path.Combine(env.WebRootPath, "index.html"));
+                });
             }
         }
     }

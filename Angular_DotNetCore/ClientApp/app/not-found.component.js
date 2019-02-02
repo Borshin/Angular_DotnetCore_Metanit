@@ -5,16 +5,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 import { Component } from '@angular/core';
-var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+var NotFoundComponent = /** @class */ (function () {
+    function NotFoundComponent() {
     }
-    AppComponent = __decorate([
+    NotFoundComponent = __decorate([
         Component({
-            selector: 'app',
-            templateUrl: './app.component.html',
+            template: '<h2>Not found</h2>'
         })
-    ], AppComponent);
-    return AppComponent;
+    ], NotFoundComponent);
+    return NotFoundComponent;
 }());
-export { AppComponent };
-//# sourceMappingURL=app.component.js.map
+export { NotFoundComponent };
+//# sourceMappingURL=not-found.component.js.map

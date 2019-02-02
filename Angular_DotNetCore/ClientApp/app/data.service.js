@@ -17,11 +17,14 @@ var DataService = /** @class */ (function () {
     DataService.prototype.getProducts = function () {
         return this.http.get(this.url);
     };
+    DataService.prototype.getProduct = function (id) {
+        return this.http.get(this.url + '/' + id);
+    };
     DataService.prototype.createProduct = function (product) {
         return this.http.post(this.url, product, { observe: 'response' });
     };
     DataService.prototype.updateProduct = function (product) {
-        return this.http.put(this.url + '/' + product.id, product);
+        return this.http.put(this.url + '/' + product.id, product, { observe: 'response', responseType: 'text' });
     };
     DataService.prototype.deleteProduct = function (id) {
         return this.http.delete(this.url + '/' + id);

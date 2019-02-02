@@ -7,60 +7,60 @@ import { HttpResponse } from '@angular/common/http';
 
     selector: 'app',
     templateUrl: './app.component.html',
-    providers: [DataService]
+    // providers: [DataService]
 })
 
-export class AppComponent implements OnInit {
+export class AppComponent /*implements OnInit*/ {
 
-    product: Product  = new Product();
-    products: Product[];
-    tableMode: boolean = true;
+    // product: Product  = new Product();
+    // products: Product[];
+    // tableMode: boolean = true;
 
-    constructor(private dataService: DataService) {
+    // constructor(private dataService: DataService) {
 
-    }
+    // }
 
-    ngOnInit(): void {
-        this.loadProducts();
-    }
+    // ngOnInit(): void {
+    //     this.loadProducts();
+    // }
     
-    loadProducts() {
-        this.dataService.getProducts()
-            .subscribe((data: Product[]) => this.products = data);
-    }
+    // loadProducts() {
+    //     this.dataService.getProducts()
+    //         .subscribe((data: Product[]) => this.products = data);
+    // }
 
-    save() {
-        if (this.product.id == null) {
-            this.dataService.createProduct(this.product)
-                .subscribe((data: HttpResponse<Product>) => {
-                    console.log(data);
-                    console.log(data.headers.get('content-type'));
-                    this.products.push(data.body)
-                });
-        } else {
-            this.dataService.updateProduct(this.product)
-                .subscribe(data => this.loadProducts());
-        }
+    // save() {
+    //     if (this.product.id == null) {
+    //         this.dataService.createProduct(this.product)
+    //             .subscribe((data: HttpResponse<Product>) => {
+    //                 console.log(data);
+    //                 console.log(data.headers.get('content-type'));
+    //                 this.products.push(data.body)
+    //             });
+    //     } else {
+    //         this.dataService.updateProduct(this.product)
+    //             .subscribe(data => this.loadProducts());
+    //     }
 
-        this.cancel();
-    }
+    //     this.cancel();
+    // }
 
-    editProduct(p: Product) {
-        this.product = p;
-    }
+    // editProduct(p: Product) {
+    //     this.product = p;
+    // }
 
-    cancel() {
-        this.product = new Product();
-        this.tableMode = true;
-    }
+    // cancel() {
+    //     this.product = new Product();
+    //     this.tableMode = true;
+    // }
 
-    delete(p: Product) {
-        this.dataService.deleteProduct(p.id)
-            .subscribe(data => this.loadProducts());
-    }
+    // delete(p: Product) {
+    //     this.dataService.deleteProduct(p.id)
+    //         .subscribe(data => this.loadProducts());
+    // }
 
-    add() {
-        this.cancel();
-        this.tableMode = false;
-    }
+    // add() {
+    //     this.cancel();
+    //     this.tableMode = false;
+    // }
 }
