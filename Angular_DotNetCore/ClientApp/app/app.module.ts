@@ -17,7 +17,7 @@ const appRoutes: Routes = [
     { path: '', component: ProductListComponent },
     { path: 'create', component: ProductCreateComponent },
     { path: 'edit/:id', component: ProductEditComponent },
-    { path: 'product/:id', component: ProductDetailsComponent },
+    // { path: 'product/:id', component: ProductDetailsComponent },
     { path: '**', component: NotFoundComponent }
 ];
 
