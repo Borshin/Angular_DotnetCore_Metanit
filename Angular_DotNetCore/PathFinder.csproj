@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\app\app.component.js" />
+    <None Remove="ClientApp\app\app.component.js.map" />
+    <None Remove="ClientApp\app\app.module.js" />
+    <None Remove="ClientApp\app\app.module.js.map" />
+    <None Remove="ClientApp\app\components\air-path\air-path.component.js" />
+    <None Remove="ClientApp\app\components\air-path\air-path.component.js.map" />
+    <None Remove="ClientApp\app\components\not-found-component\not-found.component.js" />
+    <None Remove="ClientApp\app\components\not-found-component\not-found.component.js.map" />
+    <None Remove="ClientApp\app\models\air-route.js" />
+    <None Remove="ClientApp\app\models\air-route.js.map" />
+    <None Remove="ClientApp\app\models\airline.js" />
+    <None Remove="ClientApp\app\models\airline.js.map" />
+    <None Remove="ClientApp\app\models\airport.js" />
+    <None Remove="ClientApp\app\models\airport.js.map" />
+    <None Remove="ClientApp\app\services\data.service.js" />
+    <None Remove="ClientApp\app\services\data.service.js.map" />
+    <None Remove="ClientApp\main.js" />
+    <None Remove="ClientApp\main.js.map" />
+    <None Remove="ClientApp\polyfills.js" />
+    <None Remove="ClientApp\polyfills.js.map" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+  </ItemGroup>
+
+</Project>

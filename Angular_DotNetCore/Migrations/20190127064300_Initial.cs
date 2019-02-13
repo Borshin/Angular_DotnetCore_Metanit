@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Angular_DotNetCore.Migrations
+namespace PathFinder.Migrations
 {
     public partial class Initial : Migration
     {

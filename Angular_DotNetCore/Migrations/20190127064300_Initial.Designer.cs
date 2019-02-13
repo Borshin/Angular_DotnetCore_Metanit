@@ -5,9 +5,8 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace Angular_DotNetCore.Migrations
+namespace PathFinder.Migrations
 {
-    [DbContext(typeof(ApplicationContext))]
     [Migration("20190127064300_Initial")]
     partial class Initial
     {
