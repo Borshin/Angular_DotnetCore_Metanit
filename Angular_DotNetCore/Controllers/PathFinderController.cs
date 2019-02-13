@@ -90,12 +90,19 @@ namespace PathFinder.Controllers
         /// <returns>Returns list of airports where each line is equal to one hop.</returns>
         [HttpGet("path")]
         [JsonArrayFilter]
-        public async Task<ActionResult> Get(string sourceAirport, string destinationAirport)
+        public async Task<IActionResult> Get(string sourceAirport, string destinationAirport)
         {
             var result = await _pathFinder.Find(sourceAirport, destinationAirport, null);
             if (result!=null && result.Any())
             {
-                return Json(result);
+                var path="";
+                foreach(var res in result)
+                {
+                    path += "hop(";
+                    path += res.SrcAirport + " ";
+                    path += res.DestAirport + ") ";
+                }
+                return Json(path);
             }
             return NotFound("Path not found.");
         }

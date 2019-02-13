@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AirRoute } from '../models/air-route';
 
 /**Data service. */
 @Injectable()
@@ -48,6 +49,6 @@ export class DataService {
      * @return Path.
      */
     findPath(sourceAirport: string, destinationAirport: string): Observable<any> {
-        return this.http.get(this.url + '/path', { params: { sourceAirport: sourceAirport, destinationAirport: destinationAirport } }); 
+        return this.http.get(this.url + '/path', { params: { sourceAirport: sourceAirport, destinationAirport: destinationAirport }}); 
     }
 }

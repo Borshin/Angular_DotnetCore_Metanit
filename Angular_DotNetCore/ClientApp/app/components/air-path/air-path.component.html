@@ -25,27 +25,6 @@
 </div>
 <br>
 
-<table *ngIf="airportPath&&airportPath.length>0" class="table table-striped">
-    <thead>
-        <tr>
-            <td>Airline</td>
-            <td>Source airport</td>
-            <td>Destination airport</td>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let airRoute of airportOutgoingRoutes">
-            <td>{{airportPath.airline}}</td>
-            <td>{{airportPath.srcAirport}}</td>
-            <td>{{airportPath.destAirport}}</td>
-        </tr>
-    </tbody>
-</table>
-<br>
-<br>
-<br>
-<br>
-
 <table *ngIf="airlineInfo&&airlineInfo.length>0" class="table table-striped">
     <thead>
         <tr>
