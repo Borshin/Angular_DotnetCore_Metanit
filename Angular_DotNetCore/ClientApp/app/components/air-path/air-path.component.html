@@ -1,0 +1,108 @@
+
+<div>
+    <input #alias type="text" class="form-control input-width" placeholder="Airline"/>
+    <button class="btn btn-sm btn-primary" (click)="getAirlineInfo(alias.value)">Get airline info</button>
+</div>
+<br>
+
+<div>
+    <input #airport type="text" class="form-control input-width" placeholder="Alias"/>
+    <button class="btn btn-sm btn-primary" (click)="getAirportOutgoing(airport.value)">Get Airport Outgoing</button>
+</div>
+<br>
+
+<div>
+    <input #pattern type="text" class="form-control input-width" placeholder="Pattern"/>
+    <button class="btn btn-sm btn-primary" (click)="getAirportInfo(pattern.value)">Get airport info</button>
+</div>
+
+<br>
+<br>
+<div>
+    <input #sourceAirport type="text" class="form-control input-width" placeholder="From"/>
+    <input #destinationAirport type="text" class="form-control input-width" placeholder="To"/>
+    <button class="btn btn-sm btn-primary" (click)="getPath(sourceAirport.value,destinationAirport.value)">Get path</button>
+</div>
+<br>
+
+<table *ngIf="airportPath&&airportPath.length>0" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Airline</td>
+            <td>Source airport</td>
+            <td>Destination airport</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let airRoute of airportOutgoingRoutes">
+            <td>{{airportPath.airline}}</td>
+            <td>{{airportPath.srcAirport}}</td>
+            <td>{{airportPath.destAirport}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+<br>
+<br>
+<br>
+
+<table *ngIf="airlineInfo&&airlineInfo.length>0" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Alias</td>
+            <td>Active</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let line of airlineInfo">
+            <td>{{line.name}}</td>
+            <td>{{line.alias}}</td>
+            <td>{{line.active}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<table *ngIf="airportOutgoingRoutes&&airportOutgoingRoutes.length>0" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Airline</td>
+            <td>Source airport</td>
+            <td>Destination airport</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let airRoute of airportOutgoingRoutes">
+            <td>{{airRoute.airline}}</td>
+            <td>{{airRoute.srcAirport}}</td>
+            <td>{{airRoute.destAirport}}</td>
+        </tr>
+    </tbody>
+</table>
+<br>
+
+<table *ngIf="airportInfo&&airportInfo.length>0" class="table table-striped">
+    <thead>
+        <tr>
+            <td>Airport name</td>
+            <td>Alias</td>
+            <td>City</td>
+            <td>Country</td>
+            <td>Latitude</td>
+            <td>Longitude</td>
+            <td>Altitude</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let airport of airportInfo">
+            <td>{{airport.name}}</td>
+            <td>{{airport.alias}}</td>
+            <td>{{airport.city}}</td>
+            <td>{{airport.country}}</td>
+            <td>{{airport.latitude}}</td>
+            <td>{{airport.longitude}}</td>
+            <td>{{airport.altitude}}</td>
+        </tr>
+    </tbody>
+</table>

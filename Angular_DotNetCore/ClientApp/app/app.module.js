@@ -10,27 +10,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AppComponent } from "./app.component";
-import { ProductListComponent } from './product-list.component';
-import { ProductDetailsComponent } from './product-detail.component';
-import { ProductCreateComponent } from './product-create.component';
-import { ProductEditComponent } from './product-edit.component';
-import { NotFoundComponent } from './not-found.component';
-import { DataService } from './data.service';
-import { ProductFormComponent } from './product-form.component';
+import { NotFoundComponent } from './components/not-found-component/not-found.component';
+import { AirPathComponent } from './components/air-path/air-path.component';
+import { DataService } from './services/data.service';
+/**Routes. */
 var appRoutes = [
-    { path: '', component: ProductListComponent },
-    { path: 'create', component: ProductCreateComponent },
-    { path: 'edit/:id', component: ProductEditComponent },
-    { path: 'product/:id', component: ProductDetailsComponent },
+    { path: '', component: AirPathComponent },
     { path: '**', component: NotFoundComponent }
 ];
+/**App Module. */
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         NgModule({
             imports: [BrowserModule, FormsModule, HttpClientModule, RouterModule.forRoot(appRoutes)],
-            declarations: [AppComponent, ProductListComponent, ProductCreateComponent, ProductEditComponent, ProductFormComponent, NotFoundComponent],
+            declarations: [
+                AppComponent,
+                AirPathComponent,
+                NotFoundComponent,
+            ],
             providers: [DataService],
             bootstrap: [AppComponent]
         })

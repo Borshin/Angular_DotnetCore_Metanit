@@ -1,7 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-
 module.exports = {
     entry: {
         'polyfills': './ClientApp/polyfills.ts',
@@ -39,11 +38,9 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core/,
-            path.resolve(__dirname, 'ClientApp'),
-            {}
-        ),
-        new UglifyJsPlugin()
+        new webpack.SourceMapDevToolPlugin({
+            filename: '[file].map', // Remove this line if you prefer inline source maps
+            moduleFilenameTemplate: path.relative(__dirname, '[resourcePath]') // Point sourcemap entries to the original file locations on disk
+        })
     ]
 }
