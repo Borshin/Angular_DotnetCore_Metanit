@@ -48,6 +48,6 @@ export class DataService {
      * @return Path.
      */
     findPath(sourceAirport: string, destinationAirport: string): Observable<any> {
-        return this.http.get(this.url + '/path', { params: { sourceAirport: sourceAirport, destinationAirport: destinationAirport } }); 
+        return this.http.get(this.url + '/path', { params: { sourceAirport: sourceAirport, destinationAirport: destinationAirport }}); 
     }
 }

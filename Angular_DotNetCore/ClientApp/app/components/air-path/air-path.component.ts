@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { DataService } from '../../services/data.service';
 import { Airport } from '../../models/airport';
 import { Airline } from '../../models/airline';
@@ -8,31 +8,23 @@ import { AirRoute } from '../../models/air-route';
     styleUrls: ['./air-path.component.css'],
     templateUrl: './air-path.component.html',
 })
-export class AirPathComponent implements OnInit {
+export class AirPathComponent {
     /**Arrival point. */
     public srcAirport: Airport;
     /**Destination point. */
     public destAirport: Airport;
 
     /**Array of airline info. */
-    airlineInfo: Airline[] = [];
+    public airlineInfo: Airline[] = [];
 
     /**Array of airport outgoing routes. */
-    airportOutgoingRoutes: AirRoute[] = [];
+    public airportOutgoingRoutes: AirRoute[] = [];
 
     /**Array of airport info. */
-    airportInfo: Airport[] = [];
-
-    /**Array of paths. */
-    airportPath: AirRoute[] = [];
-
+    public airportInfo: Airport[] = [];
 
     constructor(private dataService: DataService) {
     }
-
-    ngOnInit() {
-    }
-
 
     /**
      * Gets airline info from api.
@@ -57,7 +49,7 @@ export class AirPathComponent implements OnInit {
                 if (res) {
                     this.airportOutgoingRoutes = res.data;
                 }
-            })
+            });
     }
 
     /**
@@ -70,7 +62,7 @@ export class AirPathComponent implements OnInit {
                 if (res) {
                     this.airportInfo = res.data;
                 }
-            })
+            });
     }
 
    /**
@@ -79,12 +71,14 @@ export class AirPathComponent implements OnInit {
     * @param destinationAirport Destination airport.
     */
     public getPath(sourceAirport: string, destinationAirport: string) {
-        this.dataService.findPath(sourceAirport, destinationAirport)
-            .subscribe((res: any) => {
-                if (res) {
-                    this.airportPath = res.data;
-                }
-            })
+        if (!sourceAirport || sourceAirport.length < 3|| sourceAirport.length > 4) {
+            return;
+        }
+        if (!destinationAirport || destinationAirport.length < 3 || destinationAirport.length > 4) {
+            return;
+        }
+        this.dataService.findPath(sourceAirport.toUpperCase(), destinationAirport.toUpperCase()).subscribe(res => {
+            alert(res);
+        });
     }
-    
 }
