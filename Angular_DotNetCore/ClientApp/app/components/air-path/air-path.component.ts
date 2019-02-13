@@ -3,7 +3,6 @@ import { DataService } from '../../services/data.service';
 import { Airport } from '../../models/airport';
 import { Airline } from '../../models/airline';
 import { AirRoute } from '../../models/air-route';
-import { Observable } from 'rxjs';
 
 @Component({
     styleUrls: ['./air-path.component.css'],
